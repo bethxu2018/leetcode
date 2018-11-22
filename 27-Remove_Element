@@ -1,0 +1,27 @@
+# -*- coding:utf-8 -*-
+# Author: bethxu
+import collections
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        str_nu = collections.Counter(nums)
+        print str_nu
+        if val in str_nu.keys():
+            for i in range(str_nu[val]):
+                nums.remove(val)
+                i += 1
+        else:
+            pass
+        return len(nums)
+
+a = Solution()
+nums = [3,2,2,3]
+re_len = a.removeElement(nums, 3)
+print re_len
+
+
+
