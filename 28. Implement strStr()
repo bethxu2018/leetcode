@@ -1,0 +1,22 @@
+# -*- coding:utf-8 -*-
+# Author: bethxu
+
+class Solution(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        f_len = len(haystack)
+        sub_len = len(needle)
+        first_index = -1
+        if sub_len == 0:
+            first_index = 0
+        elif f_len >= sub_len:
+            first_index = haystack.find(needle)
+        return first_index
+
+a=Solution()
+s="aaaaa"
+print a.strStr(s,"aaaaaaaaa")
