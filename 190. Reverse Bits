@@ -1,0 +1,16 @@
+class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        n_str=str(bin(n))[2:]
+        need_zero=0
+        if len(n_str)<32:
+            need_zero=32-(len(n_str)%32)
+        n_list=list(n_str)
+        n_list.reverse()
+        for i in range(need_zero):
+            n_list.append("0")
+        
+        tmp="".join(n_list)
+        print tmp
+        return int(tmp,2)
