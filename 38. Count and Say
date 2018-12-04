@@ -1,0 +1,27 @@
+class Solution(object):
+    def countStr(self,s):
+        s+=" "
+        tmp=s[0]
+        finally_str=""
+        count =0
+        for i in range(len(s)):
+            if s[i]==tmp:
+                count+=1
+            else:
+                finally_str+=str(count)+tmp
+                tmp=s[i]
+                count=1
+        return finally_str
+                
+            
+    def countAndSay(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        
+        s= "1"
+        while n > 1:
+            s = self.countStr(s)
+            n-=1
+        return s
