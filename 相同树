@@ -20,20 +20,16 @@ Two binary trees are considered equal if they are structurally identical and the
 #
 class Solution:
     def isSameTree(self , p , q ):
-        def read_tree(tree,r_list):
-            if tree == None:
-                r_list.append('null')
-            else:
-                r_list.append(tree.val)
-                read_tree(tree.left,r_list)
-                read_tree(tree.right,r_list)
-            return r_list
-        p_list = read_tree(p, [])
-        q_list = read_tree(q, [])
-        
-        if p_list == q_list:
+        if p==None and q==None:
             return True
-        else:
+        elif q==None and p!=None:
             return False
+        elif p==None and q!=None:
+            return False
+        elif p.val!=q.val:
+            return False
+        else:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        
             
         
