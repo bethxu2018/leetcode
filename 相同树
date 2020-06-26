@@ -1,0 +1,39 @@
+题目描述
+给出两个二叉树，请写出一个判断两个二叉树是否相等的函数。
+判断两个二叉树相等的条件是：两个二叉树的结构相同，并且相同的节点上具有相同的值。
+
+Given two binary trees, write a function to check if they are equal or not.
+Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
+
+
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+#
+# 
+# @param p TreeNode类 
+# @param q TreeNode类 
+# @return bool布尔型
+#
+class Solution:
+    def isSameTree(self , p , q ):
+        def read_tree(tree,r_list):
+            if tree == None:
+                r_list.append('null')
+            else:
+                r_list.append(tree.val)
+                read_tree(tree.left,r_list)
+                read_tree(tree.right,r_list)
+            return r_list
+        p_list = read_tree(p, [])
+        q_list = read_tree(q, [])
+        
+        if p_list == q_list:
+            return True
+        else:
+            return False
+            
+        
